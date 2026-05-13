@@ -1,4 +1,22 @@
-import './Usercard.css'
+import './Usercard.css';
+import React, { useState } from 'react';
+
+
+function Text() {
+  const [info, setMessage] = useState(
+    "HI I AM DHINESH CLICK HERE TO SEND MESSAGE I WILL CONTACT YOU"
+  );
+
+  return (
+    <div className="conTACT-Card">
+      <h1>
+        {info}
+      </h1>
+      <button  onClick={() => setMessage("Message sent! We’ll reach out in a few minutes.just check your mail id we will sent zoom link")}>click me</button>
+    </div>
+  );
+}
+
 const userData = [
   {
     name: "dhinesh",
@@ -6,7 +24,7 @@ const userData = [
     isstudent: true,
     skills: ["UI/UX", "Front End Development", "CSS", "JavaScript", "React", "Node"],
     isonline: true,
-    profile: <img src="" alt="image1" />,
+    profile: "", // image URL can go here
     description: "Expert in UI/UX and Front End Development with a knack for creating intuitive user experiences."
   },
   {
@@ -15,7 +33,7 @@ const userData = [
     isstudent: false,
     skills: ["UI/UX", "Front End Development", "CSS", "JavaScript", "React", "Node"],
     isonline: true,
-    profile: <img src="" alt="image1" />,
+    profile: "",
     description: "Expert in UI/UX and Front End Development with a knack for creating intuitive user experiences."
   },
   {
@@ -24,7 +42,7 @@ const userData = [
     isstudent: true,
     skills: ["UI/UX", "Front End Development", "CSS", "JavaScript", "React", "Node"],
     isonline: true,
-    profile: <img src="" alt="image1" />,
+    profile: "",
     description: "Expert in UI/UX and Front End Development with a knack for creating intuitive user experiences."
   }
 ];
@@ -34,7 +52,8 @@ function User(props) {
     <div className="card-container">
       <h3>Name: {props.name}</h3>
       <h3>City: {props.city}</h3>
-      <h3>Student: {props.isstudent ? "online" : "offline"}</h3>
+      <img src={props.profile} className="img" alt="user" />
+      <h3>Status: {props.isstudent ? "Student" : "Professional"}</h3>
       <div className="skill-container">
         <h3>Skills</h3>
         <ul>
@@ -42,8 +61,8 @@ function User(props) {
             <li key={index}>{skill}</li>
           ))}
         </ul>
-        <button className='primary'>CONTACT</button>
-        <button className='primary OUTLINE'>FOLLOW</button>
+        <button className="primary">CONTACT</button>
+        <button className="primary outline">FOLLOW</button>
       </div>
     </div>
   );
@@ -52,6 +71,7 @@ function User(props) {
 export default function Usercard() {
   return (
     <>
+      <Text />
       {userData.map((user, index) => (
         <User
           key={index}
