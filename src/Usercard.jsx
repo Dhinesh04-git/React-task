@@ -1,5 +1,6 @@
 import './Usercard.css';
 import React, { useState } from 'react';
+import OIP from './OIP.webp'
 
 
 function Text() {
@@ -52,7 +53,7 @@ function User(props) {
     <div className="card-container">
       <h3>Name: {props.name}</h3>
       <h3>City: {props.city}</h3>
-      <img src={props.profile} className="img" alt="user" />
+      <img src={OIP} className="img" alt="user" />
       <h3>Status: {props.isstudent ? "Student" : "Professional"}</h3>
       <div className="skill-container">
         <h3>Skills</h3>
